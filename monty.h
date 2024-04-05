@@ -49,12 +49,12 @@ typedef struct data_file_s
 	char *content;
 	char *temp;
 } data_file_t;
-extern data_file_t dat;
+extern data_file_t data;
 
 int main(int argc, char **argv);
 void push(stack_t **stack, unsigned int line_number);
 int get_func(char *content, stack_t
-	**stack, unsigned int line_number, FILE *file, data_file_t *data)
+	**stack, unsigned int line_number, FILE *file);
 
 
 #endif

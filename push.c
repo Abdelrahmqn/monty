@@ -7,7 +7,7 @@
 *
 * @stack: the stack
 *
-* @line_number: the number of the line.
+* @line_number: the number of the lines
 */
 void push(stack_t **stack, unsigned int line_number)
 {

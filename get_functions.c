@@ -13,11 +13,11 @@
  *
  * @file: the file of the processes
  *
- * @data: the global variables initialization.
+ * @dataa: the global variables initialization.
  * Return: return (0), or (1) in failure.
  */
 int get_func(char *content, stack_t
-	**stack, unsigned int line_number, FILE *file, data_file_t *data)
+	**stack, unsigned int line_number, FILE *file)
 {
 
 	instruction_t op[] = {
@@ -28,7 +28,15 @@ int get_func(char *content, stack_t
 	char *tkn;
 
 	tkn = strtok(content, " \n\t");
-	dat.temp = strtok(NULL, " \n\t");
+	data.temp = strtok(NULL, " \n\t");
+	if (data.temp == NULL)
+	{
+    fprintf(stderr, "L%d: usage: push integer\n", line_number);
+    fclose(data.file);
+    free(data.content);
+    free(*stack);
+    exit(EXIT_FAILURE);
+	}
 
 	for (i = 0; op[i].opcode != NULL; i++)
 	{

@@ -1,6 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
+data_file_t data = {NULL, NULL, NULL};
 /**
  * main - the main function
  *
@@ -12,7 +13,6 @@
 */
 int main(int argc, char **argv)
 {
-	data_file_t data = {NULL, NULL, NULL};
 	FILE *file;
 	size_t read_line = 1;
 	char *command_line;
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 		line_number++;
 		if (read_line > 0)
 		{
-			get_func(content, &stack, line_number, file, data);
+			get_func(content, &stack, line_number, file);
 		}
 		free(command_line);
 	}
